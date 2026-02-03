@@ -1,0 +1,547 @@
+/* Medical Malpractice Guide - Professional Law Firm Design */
+
+/* ============================================
+   BASE STYLES & RESETS
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #b91c1c;
+    --primary-red-hover: #991b1b;
+    --gold: #fbbf24;
+    --dark-bg: #1a1a1a;
+    --darker-bg: #0f0f0f;
+    --text-light: #f3f4f6;
+    --text-gray: #9ca3af;
+    --border-light: rgba(255, 255, 255, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--darker-bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.top-nav {
+    background: rgba(0, 0, 0, 0.95);
+    padding: 1.25rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-light);
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.logo span {
+    color: var(--primary-red);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary-red);
+}
+
+.nav-cta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.phone-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.phone-link:hover {
+    background: white;
+    color: var(--dark-bg);
+}
+
+.cta-button {
+    background: var(--primary-red);
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background: var(--primary-red-hover);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23222" width="1200" height="800"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge::before {
+    content: "●";
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+}
+
+.hero h1 .highlight {
+    color: var(--primary-red);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    color: var(--text-gray);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.btn-primary {
+    background: var(--primary-red);
+    color: white;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-primary:hover {
+    background: var(--primary-red-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 1rem 2.5rem;
+    border: 2px solid white;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: var(--dark-bg);
+}
+
+/* ============================================
+   STATS SECTION
+   ============================================ */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    max-width: 1000px;
+}
+
+.stat-item h3 {
+    font-size: 3rem;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   CONTENT SECTIONS
+   ============================================ */
+.content-section {
+    padding: 5rem 0;
+    background: var(--dark-bg);
+}
+
+.content-section.alt {
+    background: var(--darker-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.section-header .highlight {
+    color: var(--primary-red);
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   CARDS & GRID
+   ============================================ */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-red);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.card p {
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+.card ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.card li {
+    padding: 0.5rem 0;
+    color: var(--text-gray);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.card li::before {
+    content: "✓";
+    color: var(--primary-red);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* ============================================
+   CTA BOXES
+   ============================================ */
+.cta-box {
+    background: linear-gradient(135deg, var(--primary-red), #7f1d1d);
+    padding: 3rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.cta-box h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.cta-box p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-box .btn-primary {
+    background: white;
+    color: var(--primary-red);
+}
+
+.cta-box .btn-primary:hover {
+    background: var(--text-light);
+}
+
+/* ============================================
+   INFO BOXES
+   ============================================ */
+.info-box {
+    background: rgba(59, 130, 246, 0.1);
+    border-left: 4px solid #3b82f6;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+}
+
+.warning-box {
+    background: rgba(251, 191, 36, 0.1);
+    border-left: 4px solid var(--gold);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+}
+
+.danger-box {
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 4px solid #ef4444;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, h4, h5 {
+    color: white;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-top: 3rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+    margin-top: 2rem;
+}
+
+p {
+    margin-bottom: 1.25rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+a {
+    color: var(--primary-red);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--gold);
+}
+
+ul, ol {
+    margin: 1rem 0 1rem 2rem;
+    color: var(--text-gray);
+}
+
+li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background: var(--primary-red);
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-gray);
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background: var(--darker-bg);
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--border-light);
+}
+
+footer p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: var(--text-light);
+    margin: 0 1rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
